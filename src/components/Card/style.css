@@ -1,0 +1,14 @@
+.cardBody {
+  width: 200px;
+  height: 120px;
+  border-radius: 12px;
+  border-color: white;
+  background-color: #fff;
+  color: black;
+  padding: 5px;
+ align-items: center;
+}
+
+/* .cardImg{
+
+} */
