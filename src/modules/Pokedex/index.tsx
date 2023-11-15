@@ -4,7 +4,6 @@ import { Button, Title, Card } from "../../components";
 import "./style.css";
 import {
   getAllPokemons,
-  getImage,
   nextPage,
   PokemonListProps,
   previousPage,
@@ -29,8 +28,6 @@ const Pokedex: React.FC = () => {
     };
     handlePokemons();
   }, []);
-
-  
 
   const history = useHistory();
 
@@ -62,48 +59,33 @@ const Pokedex: React.FC = () => {
         <Title
           text="Pokedex"
           customSyles={{
-            fontSize: 40,
+            fontSize: 60,
             marginTop: 30,
             marginBottom: 30,
           }}
         />
       </div>
-      <div className="pokedexCenter">
+      <div>
         <div className="pokedexNames">
           {pokemons.map((pokemon, index) => (
             <Card text={pokemon?.name} url={pokemon?.url} />
           ))}
         </div>
       </div>
-      <div className="buttonsCenter">
-        <div className="pokedexButtons">
-          {previus ? (
-            <>
-              <Button
-                text="Página Anterior "
-                customStyles={{
-                  height: 30,
-                  width: 150,
-                  borderRadius: 13,
-                  borderColor: "rgba(0,0,0,0.1)",
-                  marginTop: 0,
-                  marginRight: 20,
-                }}
-                handleEvent={handlePrevius}
-              />
-              <Button
-                text="Próxima Página"
-                customStyles={{
-                  height: 30,
-                  width: 150,
-                  borderRadius: 13,
-                  borderColor: "rgba(0,0,0,0.1)",
-                  marginTop: 0,
-                }}
-                handleEvent={handleNext}
-              />
-            </>
-          ) : (
+      <div className="pokedexButtons">
+        {previus ? (
+          <>
+            <Button
+              text="Página Anterior"
+              customStyles={{
+                height: 30,
+                width: 150,
+                borderRadius: 13,
+                borderColor: "rgba(0,0,0,0.1)",
+                marginRight: 20,
+              }}
+              handleEvent={handlePrevius}
+            />
             <Button
               text="Próxima Página"
               customStyles={{
@@ -111,12 +93,22 @@ const Pokedex: React.FC = () => {
                 width: 150,
                 borderRadius: 13,
                 borderColor: "rgba(0,0,0,0.1)",
-                marginTop: 0,
               }}
               handleEvent={handleNext}
             />
-          )}
-        </div>
+          </>
+        ) : (
+          <Button
+            text="Próxima Página"
+            customStyles={{
+              height: 30,
+              width: 150,
+              borderRadius: 13,
+              borderColor: "rgba(0,0,0,0.1)",
+            }}
+            handleEvent={handleNext}
+          />
+        )}
       </div>
     </div>
   );

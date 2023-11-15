@@ -43,7 +43,8 @@ const Details: React.FC = () => {
             width: 150,
             borderRadius: 13,
             borderColor: "rgba(0,0,0,0.1)",
-            marginTop: 10,
+            marginTop: 20,
+            marginBottom:20
           }}
         />
       </div>

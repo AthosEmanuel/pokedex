@@ -17,8 +17,7 @@ const Home: React.FC = () => {
         customSyles={{
           fontSize: 40,
           marginTop: 30,
-          marginBottom: 300,
-        }}
+            }}
       />
       <div className="buttonsCenter">
         <Button
