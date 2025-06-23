@@ -1,0 +1,24 @@
+.butonBody {
+  font-family: "Syne Mono", monospace;
+  font-size: 16px;
+  padding: 12px 24px;
+  background-color: #f2eef7;
+  color: #1b4a56;
+  border: 2px solid #1b4a56;
+  border-radius: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 2px 2px 0 #1b4a56;
+  height: 50px;
+  width: 300px;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.butonBody:hover {
+  background-color: yellow;
+  color: black;
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}

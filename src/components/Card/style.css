@@ -7,4 +7,15 @@
   color: black;
   padding: 5px;
   align-items: center;
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+  cursor: pointer;
+}
+
+.cardBody:hover {
+  background-color: greenyellow;
+  color: black;
+  box-shadow: none;
+  transform: translate(2px, 2px);
 }

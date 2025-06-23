@@ -1,13 +1,15 @@
-import React from "react";
-import { Title, Button } from "./../../components";
 import "./style.css";
-import { useHistory } from "react-router-dom";
+
+import { Button, Title } from "./../../components";
+
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home: React.FC = () => {
-  const history = useHistory();
+  const history = useNavigate();
 
   const handleClick = () => {
-    history.push("/pokedex");
+    history("/pokedex");
   };
 
   return (
@@ -17,7 +19,7 @@ const Home: React.FC = () => {
         customSyles={{
           fontSize: 40,
           marginTop: 30,
-            }}
+        }}
       />
       <div className="buttonsCenter">
         <Button

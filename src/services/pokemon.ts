@@ -1,6 +1,7 @@
-const axios = require("axios");
+import axios from "axios";
 
 export interface PokemonListProps {
+  id: number;
   name: string;
   url: string;
   results: Array<PokemonListProps>;
@@ -24,30 +25,10 @@ const getAllPokemons = async () => {
   }
 };
 
-const getPokemonInfo = async (id: number) => {
-  try {
-    const { data } = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-  } catch (error) {
-    console.error(error);
-  }
-};
-
 const getPokemonDetails = async (url: any) => {
   try {
-    const { data } = await axios.get(url.detail);
+    const { data } = await axios.get(url);
     return data;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-const getImage = async (id: number) => {
-  try {
-    const { data } = await axios.get(
-      `https://pokeapi.co/api/v2/pokemon/${id}/`
-    );
-    console.log(data);
-    return data.sprites.front_default;
   } catch (error) {
     console.error(error);
   }
@@ -71,11 +52,4 @@ const previousPage = async (url: string) => {
   }
 };
 
-export {
-  getAllPokemons,
-  getPokemonInfo,
-  nextPage,
-  previousPage,
-  getImage,
-  getPokemonDetails,
-};
+export { getAllPokemons, getPokemonDetails, nextPage, previousPage };

@@ -1,3 +1,5 @@
+import "./style.css";
+
 import React from "react";
 
 interface ButtonProps {
@@ -8,7 +10,7 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ text, customStyles, handleEvent }) => {
   return (
-    <button style={customStyles} onClick={handleEvent}>
+    <button style={customStyles} onClick={handleEvent} className="butonBody">
       {text}
     </button>
   );

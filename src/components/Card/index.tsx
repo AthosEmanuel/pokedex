@@ -1,44 +1,29 @@
-import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
-
 import "./style.css";
-import { getPokemonDetails, PokemonListProps } from "../../services/pokemon";
+
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { getPokemonDetails } from "../../services/pokemon";
 
 interface CardProps {
-  text: string | undefined;
-  url: string | undefined;
-  handleEvent?: () => void;
+  text?: string;
+  url?: string;
+  current?: string;
 }
 
-const Card: React.FC<CardProps> = ({ text, url }) => {
-  const history = useHistory();
-  const [pokemon, setPokemon] = useState<Array<PokemonListProps | undefined>>(
-    []
-  );
+const Card: React.FC<CardProps> = ({ text, url, current }) => {
+  const navigate = useNavigate();
 
-  const handlePokemonsDetails = async () => {
+  const handleDetails = async () => {
     if (url) {
-      const data = await getPokemonDetails(url);
-      if (data) {
-        setPokemon(data);
-      }
+      await getPokemonDetails(url);
+      navigate("/details", { state: { detail: url, current: current } });
     }
   };
 
-  const handleDetails = () => {
-    handlePokemonsDetails();
-    history.push({
-      pathname: "/details",
-      state: { detail: url },
-    });
-  };
-
   return (
-    <>
-      <div className="cardBody" onClick={handleDetails}>
-        {text}
-      </div>
-    </>
+    <div className="cardBody" onClick={handleDetails}>
+      {text}
+    </div>
   );
 };
 
